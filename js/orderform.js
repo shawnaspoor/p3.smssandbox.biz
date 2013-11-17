@@ -56,31 +56,48 @@ $('#addInvoiceLine').click(function() {
 	console.log('add button clicked')
 
 	//invoice line holder
-	var invoice_line = "";
-
+	var orderLineItem= "";
 	
 	//add the baked good type from the drop down selection
-	invoice_line_numnber	=	'<div class="line0">'+ $("#updatedInvoiceLineNumber").val() +'</div>';
-	invoice_line_item 		= 	'<div class="line1">'+ $(".bakedGoods").val()+'</div>';
-	invoice_line_quantity	= 	'<div class="line2">'+$(".quantity").val()+'</div>';
+	orderLineItem 	= 	'<div class="line1">'+ $(".bakedGoods").val()+'</div>'+'<br>';
 
-	$.each(invoice_line, function() {
-		invoiceLineString = index+invoice_line_item+invoice_line_quantity;
-	});
 
 	//create the order line and add the values just chosen
-	$('#updatedInvoiceLineNumber').append(invoice_line_numnber);
-	$('#orderLineItem').append(invoice_line_item);
-	$('#orderLineQuantity').after(invoice_line_quantity);
+
+	//$('#updatedInvoiceLineNumber').append(invoice_line_numnber);
+	$('#orderLineItem').append(orderLineItem);
+	//$('#orderLineQuantity').after(invoice_line_quantity);
 
 
 
 	
 	//reset the invoiceLine so the user can add another fresh one
-	$('#invoice_line').val('');
+	$('#orderLineItem').val('');
 
 });
 
+/*-------------------------------------------------------------------------
+add the new baked good quantity to the invoice
+--------------------------------------------------------------------------*/
+
+$('#addInvoiceLine').click(function() {
+	
+
+	//invoice line holder
+	var orderLineQuantity= "";
+	
+	//add the baked good type from the drop down selection
+	orderLineQuantity 	= '<div class="line2">'+$(".quantity").val()+'</div>'+'<br>';
+	//invoice_line_quantity	= 	;
+
+
+	//create the order line and add the values just chosen
+	$('#orderLineQuantity').after(orderLineQuantity);
+	
+	//reset the invoiceLine so the user can add another fresh one
+	$('#orderLineQuantity').val('');
+
+});
 /* this doesn't appear to be working to count clicks, frustrating 
 var count = 0;
 $('#addInvoiceLine').click(function() {
@@ -114,6 +131,15 @@ $('#billingAddress').keyup(function() {
 	console.log(name);
 });
 
+$('#state').keyup(function() {
+	//find out what they entered as their address
+	var state = $(this).val();
+
+	$('#stateOut').html(state);
+
+	console.log(name);
+});
+
 /*-------------------------------------------------------------------------
 add the recipient email address
 --------------------------------------------------------------------------*/
@@ -125,3 +151,9 @@ $('#email').keyup(function() {
 
 	console.log(name);
 });
+
+/*-------------------------------------------------------------------------
+sum all the quantities ordered to stop more than 100 being ordered.
+--------------------------------------------------------------------------*/
+
+

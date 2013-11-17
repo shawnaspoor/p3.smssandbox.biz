@@ -13,6 +13,7 @@
 
 <body>
 	<div id ="wrapper">
+		<h1>Baked Goods Order Form</h1>
 		<!--left-side with the baked goods order drop downs -->
 		<div id ="left-side">
 			<h2>Name</h2>
@@ -20,6 +21,8 @@
 
 			<h2>Billing Address</h2>
 			<input type="text" id ="billingAddress">
+			<h2>State, City, Zipcode</h2>
+			<input type="text" id ="state">
 
 			<h2>Email Address</h2>
 			<input type="text" id ="email">
@@ -42,20 +45,33 @@
 				
 				<div class='error' id="quantityError"></div>	
 
-			<input type="button" class="button" id="addInvoiceLine"	value="Add">
+			<input type="button" class="button" id="addInvoiceLine"	value="Add" onchange='OnChange(this.value)'>
 
 		</div>
 
 		<!--right side with order form display -->
 		<div id="invoice">
+			<div id="purchaserName">Purchaser Name
+				<div id="nameOut"></div>
+			</div>
 
-			<div id="nameOut"></div>
-			<div id="billingAddressOut"></div>
-			<div id="emailOut"></div>
+			<div id ="purchaserInfo">Contact Information
+				<div id="contactInfo">
+					<div id="billingAddressOut"></div>
+					<div id="stateOut"></div>
+					<div id="emailOut"></div>
+				</div>
+			</div>
 			<!--<div id="updatedInvoiceLineNumber"></div>-->
-			<div id="orderLineItem"></div>
-			<div id="orderLineQuantity"></div>
+			
+			<div class="invoiceGoods">Baked Goods<br /><br />
+				<div id="orderLineItem"></div>
+		    </div>
 
+			<div class="invoiceQuantity">Quantity<br /><br />
+				<div id="orderLineQuantity"></div>
+			</div>
+			
 		</div>
 
 

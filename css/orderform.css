@@ -1,4 +1,26 @@
 /*-------------------------------------------------------------------------------------------------
+General Styles
+-------------------------------------------------------------------------------------------------*/
+body {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 16pt;
+}
+
+h1 {
+	font-size: 20pt;
+	margin: 2px;
+	padding: 2px;
+}
+
+h2 {
+	font-size: 14pt;
+	font-weight: bold;
+	margin: 2px;
+	padding-top: 20px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------
 Layout
 -------------------------------------------------------------------------------------------------*/
 #wrapper {
@@ -8,36 +30,81 @@ Layout
 
 /* Left column */
 #left-side {
-	width:425px;
+	width:350px;
 	margin-right:50px;
 	float:left;
 }
 
 /* Right column */
 #invoice {
-	width:400px;
+	width:500px;
 	float:left;
 	text-align:left;
+	border: solid #000000 thin;
+	background: #f2f2f2;
+	padding:15px;
+	margin-top: 20px;
+	
 }
 
 .line1 {
-	float: left;
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size: 16pt;
 	font-style: italic;
-	display: inline-block;
+	font-variant: normal;
 	padding-left: 5px;
 	margin-bottom: 5px;
 	
 }
 .line2 {
-	float: right;
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size: 16pt;
-	font-style: bold;
-	display: inline-block;
+	font-weight: bold;
+	font-variant: normal;
 	padding-left: 5px;
 	margin-bottom: 5px;
-
-
 }
+
+#nameOut {
+	border: solid #f2f2f2 thin;
+	margin: 5px;
+	padding: 10px;
+	height: 75px;
+	font-variant: normal;
+}
+
+#contactInfo {
+	border: solid #f2f2f2 thin;
+	margin: 5px;
+	padding: 10px;
+	height: 75px;
+	font-variant: normal;
+}
+
+#purchaserName {
+	width: 200px;
+	float:left;
+	padding-bottom: 10px;
+    font-size: 14pt;
+	font-variant: small-caps;
+}
+
+#purchaserInfo {
+	width: 275px;
+	float: right;
+	padding-bottom: 10px;	
+	font-variant: small-caps;
+	font-size: 14pt;
+	text-align: right;
+}
+
+
+.invoiceGoods {
+	font-variant: small-caps;
+	float: left; 
+	font-size: 14pt;
+
+	}
+.invoiceQuantity {
+	float: right; 
+	font-variant: small-caps;
+	font-size: 14pt;
+	
+}
+
