@@ -15,6 +15,15 @@
 	<div id ="wrapper">
 		<!--left-side with the baked goods order drop downs -->
 		<div id ="left-side">
+			<h2>Name</h2>
+			<input type="text" id ="name">
+
+			<h2>Billing Address</h2>
+			<input type="text" id ="billingAddress">
+
+			<h2>Email Address</h2>
+			<input type="text" id ="email">
+
 			<h2>Choose a yummy!</h2>
 
 			<select class="bakedGoods">
@@ -40,10 +49,12 @@
 		<!--right side with order form display -->
 		<div id="invoice">
 
-			<!--<div class="bakedGood"></div>
-			<div class="quantityNeeded"></div>-->
+			<div id="nameOut"></div>
+			<div id="billingAddressOut"></div>
+			<div id="emailOut"></div>
 			<div id="updatedInvoiceLineNumber"></div>
-			<div id="orderLine"></div>
+			<div id="orderLineItem"></div>
+			<div id="orderLineQuantity"></div>
 
 		</div>
 

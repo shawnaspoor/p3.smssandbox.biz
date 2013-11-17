@@ -58,22 +58,70 @@ $('#addInvoiceLine').click(function() {
 	//invoice line holder
 	var invoice_line = "";
 
+	//add the invoice line numnber to the order form
+	$('#updatedInvoiceLineNumber').html(function(i, val) {
+		return +val+1
+		console.log('#updatedInvoiceLineNumber');
+	});
 	//add the baked good type from the drop down selection
-	invoice_line_item = '<div class="line">'+ $(".bakedGoods").val() +'</div>';
-	invoice_line_quantity = '<div class="line2">'+$(".quantity").val()+'</div>';
+	invoice_line_numnber	=	'<div class="line0">'+ $("#updatedInvoiceLineNumber").val() +'</div>';
+	invoice_line_item 		= 	'<div class="line1">'+ $(".bakedGoods").val() +'</div>';
+	invoice_line_quantity	= 	'<div class="line2">'+$(".quantity").val()+'</div>';
 
 	//create the order line and add the values just chosen
-	$('#orderLine').append(invoice_line_item, invoice_line_quantity);
-	$('#orderLine').append(invoice_line_item, invoice_line_quantity);
+	$('#updatedInvoiceLineNumber').append(invoice_line_numnber);
+	$('#orderLineItem').append(invoice_line_item);
+	$('#orderLineQuantity').append(invoice_line_quantity);
 
+
+
+	
 	//reset the invoiceLine so the user can add another fresh one
 	$('#invoice_line').val('');
 
-	//+'<div class="line2">'+'$(".quantity").val()'+'</div>'
-
-
-
-
-
 });
 
+/* this doesn't appear to be working to count clicks, frustrating 
+var count = 0;
+$('#addInvoiceLine').click(function() {
+    $("button.button").submit(function(){
+             count++;
+        });
+    console.log(count);
+});
+*/
+/*-------------------------------------------------------------------------
+add the recipient name
+--------------------------------------------------------------------------*/
+$('#name').keyup(function() {
+	//find out what they entered as their name
+	var name = $(this).val();
+
+	$('#nameOut').html(name);
+
+	console.log(name);
+});
+
+/*-------------------------------------------------------------------------
+add the recipient billing address
+--------------------------------------------------------------------------*/
+$('#billingAddress').keyup(function() {
+	//find out what they entered as their name
+	var billingAddress = $(this).val();
+
+	$('#billingAddressOut').html(billingAddress);
+
+	console.log(name);
+});
+
+/*-------------------------------------------------------------------------
+add the recipient email address
+--------------------------------------------------------------------------*/
+$('#email').keyup(function() {
+	//find out what they entered as their name
+	var email = $(this).val();
+
+	$('#emailOut').html(email);
+
+	console.log(name);
+});
