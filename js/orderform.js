@@ -58,20 +58,20 @@ $('#addInvoiceLine').click(function() {
 	//invoice line holder
 	var invoice_line = "";
 
-	//add the invoice line numnber to the order form
-	$('#updatedInvoiceLineNumber').html(function(i, val) {
-		return +val+1
-		console.log('#updatedInvoiceLineNumber');
-	});
+	
 	//add the baked good type from the drop down selection
 	invoice_line_numnber	=	'<div class="line0">'+ $("#updatedInvoiceLineNumber").val() +'</div>';
-	invoice_line_item 		= 	'<div class="line1">'+ $(".bakedGoods").val() +'</div>';
+	invoice_line_item 		= 	'<div class="line1">'+ $(".bakedGoods").val()+'</div>';
 	invoice_line_quantity	= 	'<div class="line2">'+$(".quantity").val()+'</div>';
+
+	$.each(invoice_line, function() {
+		invoiceLineString = index+invoice_line_item+invoice_line_quantity;
+	});
 
 	//create the order line and add the values just chosen
 	$('#updatedInvoiceLineNumber').append(invoice_line_numnber);
 	$('#orderLineItem').append(invoice_line_item);
-	$('#orderLineQuantity').append(invoice_line_quantity);
+	$('#orderLineQuantity').after(invoice_line_quantity);
 
 
 
@@ -106,7 +106,7 @@ $('#name').keyup(function() {
 add the recipient billing address
 --------------------------------------------------------------------------*/
 $('#billingAddress').keyup(function() {
-	//find out what they entered as their name
+	//find out what they entered as their address
 	var billingAddress = $(this).val();
 
 	$('#billingAddressOut').html(billingAddress);
@@ -118,7 +118,7 @@ $('#billingAddress').keyup(function() {
 add the recipient email address
 --------------------------------------------------------------------------*/
 $('#email').keyup(function() {
-	//find out what they entered as their name
+	//find out what they entered as their email
 	var email = $(this).val();
 
 	$('#emailOut').html(email);
