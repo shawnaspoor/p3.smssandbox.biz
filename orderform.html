@@ -16,6 +16,7 @@
 		<h1>Baked Goods Order Form</h1>
 		<!--left-side with the baked goods order drop downs -->
 		<div id ="left-side">
+		<form>	
 			<h2>Name</h2>
 			<input type="text" id ="name">
 
@@ -25,7 +26,7 @@
 			<input type="text" id ="state">
 
 			<h2>Email Address</h2>
-			<input type="text" id ="email">
+			<input type="text" id ="email" >
 
 			<h2>Choose a yummy!</h2>
 
@@ -41,12 +42,12 @@
 
 
 			<h2>How many yummys!</h2>
-				<input type="text" class="quantity" maxlength="2" >
+				<input type="text" class="quantity" id="quantity" maxlength="2" >
 				
 				<div class='error' id="quantityError"></div>	
 
-			<input type="button" class="button" id="addInvoiceLine"	value="Add" onchange='OnChange(this.value)'>
-
+			<input type="button" class="button" id="addInvoiceLine"	value="Add" onclick="insert()">
+		</form>	
 		</div>
 
 		<!--right side with order form display -->
@@ -71,8 +72,17 @@
 			<div class="invoiceQuantity">Quantity<br /><br />
 				<div id="orderLineQuantity"></div>
 			</div>
-			
+
+			<br />
+			<br />
+
+			<div class = "total">Total:
+				<div id="total"></div>
+		    </div>
+
 		</div>
+		
+	
 
 
 	</div>

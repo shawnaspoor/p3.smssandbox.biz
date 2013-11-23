@@ -30,7 +30,7 @@ $('.bakedGoods').change(function() {
 
 /*-------------------------------------------------------------------------
 quantity of baked goods text area
---------------------------------------------------------------------------*/
+
 $('.quantity').keyup(function() {
 	//get the quantity type
 	var quantity = $(this).val();
@@ -48,7 +48,7 @@ $('.quantity').keyup(function() {
 	//put the quantity onto the invoice
 	$('.quantityNeeded').html(quantity);
 });
-
+--------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------
 add the new baked good to the invoice
 --------------------------------------------------------------------------*/
@@ -107,6 +107,16 @@ $('#addInvoiceLine').click(function() {
     console.log(count);
 });
 */
+
+/*-------------------------------------------------------------------------
+sum all the quantities ordered to stop more than 100 being ordered.
+
+var total=0;
+for (var i=0; i < quantity.length; i++){
+	 total += quantity[i];
+}
+console.log(total)
+--------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------
 add the recipient name
 --------------------------------------------------------------------------*/
@@ -143,17 +153,141 @@ $('#state').keyup(function() {
 /*-------------------------------------------------------------------------
 add the recipient email address
 --------------------------------------------------------------------------*/
-$('#email').keyup(function() {
+$('#email').blur(function() {
 	//find out what they entered as their email
 	var email = $(this).val();
 
 	$('#emailOut').html(email);
 
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+    if (!filter.test(email.value)) {
+    alert('Please provide a valid email address');
+    email.focus;
+    return false;
+ 	
+};
+
 	console.log(name);
 });
 
+
+
 /*-------------------------------------------------------------------------
-sum all the quantities ordered to stop more than 100 being ordered.
+check quantity input is a number and not too large
 --------------------------------------------------------------------------*/
+$('#quantity').change(function(){
+
+	var	quantity = $(this).val();
+
+	console.log(quantity)
+
+	if($.isNumeric(quantity)) {
+
+	}
+	else {
+		$('#quantityError').html("Invalid input, that isn't a number.");
+	}
+
+	//check they didn't try and order more than 99 items
+	var quantity_wanted = quantity.length;
+
+	if(quantity_wanted == 2) {
+		$('#quantityError').html("You cannot order more than 99 items online. If you wish to order more than that please contact us directly via phone or email.");
+	}
+	else {
+		$('#quantityError').html("");
+	}
+   
+	});
 
 
+});
+
+
+/*-------------------------------------------------------------------------
+add quantity to an array
+--------------------------------------------------------------------------*/
+	var quantity = [];
+
+
+    $('.addInvoiceLine').click(function() {
+
+
+ 	console.log(quantityInput);
+
+	var quantityInput = document.getElementById("quantity");
+
+	function insert() {
+
+		var input = parseInt(quantityInput.value);
+
+		quantity.push(input);
+
+		var total = quantity.reduce(function( a, b ) {
+		return a + b;
+
+		console.log(total)
+		});
+
+		$('#total').html(total);
+
+		clearAndShow();
+	}
+	
+	
+
+	var invoiceDisplay  = document.getElementById("orderLineQuantity");
+
+	function clearAndShow() {
+		quantityInput.value ="";
+
+		invoiceDisplay.innerHTML = "";
+
+		invoiceDisplay.innerHTML += quantity.join("<br /> <br />") ;
+		
+	}
+
+
+
+	var total = quantity.reduce(function(a, b) {
+		return a + b;
+
+		console.log(total)
+	});
+
+	$('#total').html(total);
+		
+
+/*-------------------------------------------------------------------------
+validate input from the fields
+--------------------------------------------------------------------------*/
+	
+$("#name").validate({
+	rules: {
+		name: {
+			required: true,
+			minlength: 2
+		},
+		billingAddress: {
+			required: true,
+			minlength: 10
+		},
+		state: {
+			required: true,
+			minlength:2
+		},
+		email: {
+			required: true,
+			minlength:5
+		}
+	},
+	messages: {
+		name: "Please enter your name",
+		billingAddress: "Please enter a billing address.",
+		state: "We need your city, state, and zipcode as well.",
+		email: "Definitely required, we need to know how to contact you to take payment."
+	},
+	onfocusout: true
+	//console.log("validate")
+});

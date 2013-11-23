@@ -94,17 +94,31 @@ Layout
 	text-align: right;
 }
 
+#total {
 
+	text-align: right;
+
+}
+
+.total {
+	float: right;
+	text-align: right;
+	
+
+}
 .invoiceGoods {
 	font-variant: small-caps;
 	float: left; 
 	font-size: 14pt;
+	width: 275px;
+
 
 	}
 .invoiceQuantity {
 	float: right; 
 	font-variant: small-caps;
 	font-size: 14pt;
-	
+	text-align: right;
+	width: 200px;
 }
 
