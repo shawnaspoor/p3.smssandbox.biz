@@ -15,56 +15,60 @@ $('.bakedGoods').change(function() {
 	$('.bakedGood').html(option);
 	
 
-}).change();
+});
 
 
 /*-------------------------------------------------------------------------
 add the new baked good to the invoice
 --------------------------------------------------------------------------*/
+$("form").on('submit', function(event) {
+  if ($(".bakedGoods").val()!=0 && $(".quantity").val()!=0) {
+    $('#quantityError').html("");
+    return;
+  }
+ 
+  $('#quantityError').html("It appears you didn't specify how many you would like.");
+  event.preventDefault();
+});
+
+
 $('#addInvoiceLine').click(function() {
 	console.log('add button clicked')
 
-	//invoice line holder
-	var orderLineItem= "";
-	
-	//add the baked good type from the drop down selection
-	orderLineItem 	= 	'<div class="line1">' + $(".bakedGoods").val() +'</div>'+'<br>';
 
+
+	//invoice line holder
+	var orderLineItem = "";
+	var orderLineQuantity= "";
+
+	//add the baked good & quantity to the invoice
+	orderLineItem =	'<div class="line1">' + $(".bakedGoods").val() +'</div>'+'<br>';
+	orderLineQuantity 	= '<div class="line2">'+ $(".quantity").val()+'</div>'+'<br>';
+	
 	//create the order line and add the values just chosen
 	$('#orderLineItem').after(orderLineItem);
-		
-});
-
-/*-------------------------------------------------------------------------
-add the new baked good quantity to the invoice
---------------------------------------------------------------------------*/
-
-$('#addInvoiceLine').click(function() {
-	
-
-	//invoice line holder
-	var orderLineQuantity= "";
-	
-	//add the baked good type from the drop down selection
-	orderLineQuantity 	= '<div class="line2">'+ $(".quantity").val()+'</div>'+'<br>';
-	//invoice_line_quantity	= 	;
-
-
-	//create the order line and add the values just chosen
 	$('#orderLineQuantity').after(orderLineQuantity);
 
-});
+});	
+	
 
-/*-------------------------------------------------------------------------
-check that both quantity and baked goods are specified
---------------------------------------------------------------------------*/
-$('#addInvoiceLine').click(function() {
+	/*
+
+	//check that both baked good and quantity has value
+	if (orderLineQuantity != 0 && orderLineItem !=0) {
+		$('#quantityError').html("");
+	}
+	else if (orderLineQuantity == 0) {
+		$('#quantityError').html("It appears you didn't specify how many you would like.");
+	}
+	else if (orderLineItem == 0) {
+		$('#quantityError').html("You didn't specify what kind of yummy you would like.");
+	}	
 
 
 
-});
 
-/* this doesn't appear to be working to count clicks, frustrating 
+ this doesn't appear to be working to count clicks, frustrating 
 var count = 0;
 $('#addInvoiceLine').click(function() {
     $("button.button").submit(function(){
