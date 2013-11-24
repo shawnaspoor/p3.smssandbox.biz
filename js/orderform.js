@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 			if (item != "") {
 				$('#quantityError').html("");
-				}
+			}
 			else {
 				$('#quantityError').html("It appears you didn't specify what you would like.");
 				$('#addInvoiceLine').attr('disabled', true);
@@ -68,7 +68,7 @@ $('#addInvoiceLine').click(function() {
 	//invoice line holder
 	var orderLineItem = "";
 	var orderLineQuantity= "";
-
+	
 	//add the baked good & quantity to the invoice
 	orderLineItem =	'<div class="line1">' + $(".bakedGoods").val() +'</div>'+'<br>';
 	orderLineQuantity 	= '<div class="line2">'+ $(".quantity").val()+'</div>'+'<br>';
@@ -77,16 +77,25 @@ $('#addInvoiceLine').click(function() {
 	$('#orderLineItem').after(orderLineItem);
 	$('#orderLineQuantity').after(orderLineQuantity);
 
+ 	//this doesn't appear to be working to count clicks, frustrating 
 
-});	
-/*	
+});
 
- this doesn't appear to be working to count clicks, frustrating 
+/*-------------------------------------------------------------------------
+count clicks and stop it at 10 
+--------------------------------------------------------------------------*/
 var count = 0;
-$('#addInvoiceLine').click(function() {
-    $("button.button").submit(function(){
-             count;
-        });
+$(".submit").click(function(){
+    count++;
+
+    if (count>9) {
+    	alert("You can only include 10 invoice lines.");
+    	$('#addInvoiceLine').attr('disabled', true);
+    }
+    else {
+    	$('#quantityError').html("");
+    	$('#addInvoiceLine').attr('disabled', false);
+    }
     console.log(count);
 });
 
@@ -173,8 +182,6 @@ $('#addInvoiceLine').click(function() {
 	else {
 		$('#quantityError').html("");
 	}
-	//reset the box to zero to give the user a fresh start
-	quantityInput.value ="";  
 	
 });	
 
