@@ -6,25 +6,37 @@ $(document).ready(function(){
 
     //check that the quantity box has input
     $('.quantity').keyup(function () {
-	var input = $(this).val();
-	console.log(input);
-	if (input ==0) {
-		$('#quantityError').html("It appears you didn't specify how many you would like.");
-		$('#addInvoiceLine').attr('disabled', true);
-	}
-	//checking that it's a number
-	else if (!$.isNumeric(input))  {
-		$('#quantityError').html("Invalid input, that isn't a number.");
-		$('#addInvoiceLine').attr('disabled', true);
+		var input = $(this).val();
+		console.log(input);
+		if (input ==0) {
+			$('#quantityError').html("It appears you didn't specify how many you would like.");
+			$('#addInvoiceLine').attr('disabled', true);
+		}
+		//checking that it's a number
+		else if (!$.isNumeric(input))  {
+			$('#quantityError').html("Invalid input, that isn't a number.");
+			$('#addInvoiceLine').attr('disabled', true);
 
-	}	
-	//everything good? go on, press the button then
-	else {
-		$('#quantityError').html("");
-		$('#addInvoiceLine').attr('disabled', false);
-	}
-
+		}	
+		//everything good? go on, press the button then
+		else {
+			$('#quantityError').html("");
+			$('#addInvoiceLine').attr('disabled', false);
+		}
 	});
+	$('#bakedGoods').blur(function() {
+			var item = $('.bakedGoods').val();
+			console.log(item);
+
+			if (item != "") {
+				$('#quantityError').html("");
+				}
+			else {
+				$('#quantityError').html("It appears you didn't specify what you would like.");
+				$('#addInvoiceLine').attr('disabled', true);
+			}
+	});
+	
 });
 
 
@@ -68,23 +80,6 @@ $('#addInvoiceLine').click(function() {
 
 });	
 /*	
-	
-
-
-//check that both baked good and quantity has value
-	if (orderLineQuantity != "" && orderLineItem != "") {
-		$('#quantityError').html("");
-	}
-	else if (orderLineQuantity == 0) {
-		$('#quantityError').html("It appears you didn't specify how many you would like.");
-		$('#addInvoiceLine').attr('disabled', true);
-	}
-	else if (orderLineItem == 0) {
-		$('#quantityError').html("You didn't specify what kind of yummy you would like.");
-		$('#addInvoiceLine').attr('disabled', true);
-	}	
-
-
 
  this doesn't appear to be working to count clicks, frustrating 
 var count = 0;
