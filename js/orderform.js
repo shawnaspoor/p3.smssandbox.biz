@@ -1,6 +1,33 @@
 
 console.log('the js is working');
 
+$(document).ready(function(){
+    $('.submit').attr('disabled',true);
+
+    //check that the quantity box has input
+    $('.quantity').keyup(function () {
+	var input = $(this).val();
+	console.log(input);
+	if (input ==0) {
+		$('#quantityError').html("It appears you didn't specify how many you would like.");
+		$('#addInvoiceLine').attr('disabled', true);
+	}
+	//checking that it's a number
+	else if (!$.isNumeric(input))  {
+		$('#quantityError').html("Invalid input, that isn't a number.");
+		$('#addInvoiceLine').attr('disabled', true);
+
+	}	
+	//everything good? go on, press the button then
+	else {
+		$('#quantityError').html("");
+		$('#addInvoiceLine').attr('disabled', false);
+	}
+
+	});
+});
+
+
 /*-------------------------------------------------------------------------
 baked goods choice drop down selection
 --------------------------------------------------------------------------*/
@@ -21,17 +48,6 @@ $('.bakedGoods').change(function() {
 /*-------------------------------------------------------------------------
 add the new baked good to the invoice
 --------------------------------------------------------------------------*/
-//$("form").on('submit', function(event) {
- // if ($(".bakedGoods").val()!=0 && $(".quantity").val()!=0) {
-  //  $('#quantityError').html("");
-   // return;
-  //}
- 
-//  $('#quantityError').html("It appears you didn't specify how many you would like.");
- // event.preventDefault();
-//});
-
-
 $('#addInvoiceLine').click(function() {
 	console.log('add button clicked')
 
@@ -49,24 +65,28 @@ $('#addInvoiceLine').click(function() {
 	$('#orderLineItem').after(orderLineItem);
 	$('#orderLineQuantity').after(orderLineQuantity);
 
+
 });	
+/*	
 	
 
-	//check that both baked good and quantity has value
-	if (orderLineQuantity != 0 && orderLineItem !=0) {
+
+//check that both baked good and quantity has value
+	if (orderLineQuantity != "" && orderLineItem != "") {
 		$('#quantityError').html("");
 	}
 	else if (orderLineQuantity == 0) {
 		$('#quantityError').html("It appears you didn't specify how many you would like.");
+		$('#addInvoiceLine').attr('disabled', true);
 	}
 	else if (orderLineItem == 0) {
 		$('#quantityError').html("You didn't specify what kind of yummy you would like.");
+		$('#addInvoiceLine').attr('disabled', true);
 	}	
 
 
 
-
- /*this doesn't appear to be working to count clicks, frustrating 
+ this doesn't appear to be working to count clicks, frustrating 
 var count = 0;
 $('#addInvoiceLine').click(function() {
     $("button.button").submit(function(){
@@ -74,7 +94,6 @@ $('#addInvoiceLine').click(function() {
         });
     console.log(count);
 });
-
 
 /*-------------------------------------------------------------------------
 add the recipient name
@@ -122,27 +141,7 @@ $('#email').blur(function() {
     console.log(name);
   });
 
- /*-------------------------------------------------------------------------
- check quantity input is a number and not too large
-  --------------------------------------------------------------------------*/
- $('#quantity').change(function(){
- 
-	var  quantity = $(this).val();
- 
-	console.log(quantity)
-  
-	if($.isNumeric(quantity)) {
- 		$('#quantityError').html("");
-	}
-	else {
-		$('#quantityError').html("Invalid input, that isn't a number.");
-	}
 
-  });
-
-
-  
- 
  /*-------------------------------------------------------------------------
  add quantity to an array
  --------------------------------------------------------------------------*/
@@ -197,7 +196,7 @@ $('#addInvoiceLine').click(function() {
 	     name: {
 	       required: true,
 	       minlength: 2,
-	       
+
 	     },
 	     billingAddress: {
 	       required: true,
