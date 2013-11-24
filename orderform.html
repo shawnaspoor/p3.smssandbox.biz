@@ -6,9 +6,11 @@
 	
 	<link rel="stylesheet" href="css/orderform.css" type="text/css">
 	<!--<link rel="stylesheet" href="css/features.css" type="text/css">-->
-
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script src="js/jquery.validate.js"></script>
+
 </head>
 
 <body>
@@ -18,15 +20,15 @@
 		<div id ="left-side">
 		<form>	
 			<h2>Name</h2>
-			<input type="text" id ="name">
+			<input type="text" id ="name" name="name">
 
 			<h2>Billing Address</h2>
-			<input type="text" id ="billingAddress">
+			<input type="text" id ="billingAddress" name="billingAddress">
 			<h2>State, City, Zipcode</h2>
-			<input type="text" id ="state">
+			<input type="text" id ="state" name="state">
 
 			<h2>Email Address</h2>
-			<input type="text" id ="email" >
+			<input type="text" id ="email" name="email">
 
 			<h2>Choose a yummy!</h2>
 
@@ -46,7 +48,8 @@
 				
 				<div class='error' id="quantityError"></div>	
 
-			<input type="submit" class="button" id="addInvoiceLine"	value="Add">
+			<input type="button" class="submit" id="addInvoiceLine"	value="Add">
+			<input type="reset" value="Clear" class="reset">
 		</form>	
 		</div>
 
@@ -88,5 +91,6 @@
 	</div>
 
 <script src="js/orderform.js"></script>
+
 </body>
 </html>

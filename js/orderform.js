@@ -21,15 +21,15 @@ $('.bakedGoods').change(function() {
 /*-------------------------------------------------------------------------
 add the new baked good to the invoice
 --------------------------------------------------------------------------*/
-$("form").on('submit', function(event) {
-  if ($(".bakedGoods").val()!=0 && $(".quantity").val()!=0) {
-    $('#quantityError').html("");
-    return;
-  }
+//$("form").on('submit', function(event) {
+ // if ($(".bakedGoods").val()!=0 && $(".quantity").val()!=0) {
+  //  $('#quantityError').html("");
+   // return;
+  //}
  
-  $('#quantityError').html("It appears you didn't specify how many you would like.");
-  event.preventDefault();
-});
+//  $('#quantityError').html("It appears you didn't specify how many you would like.");
+ // event.preventDefault();
+//});
 
 
 $('#addInvoiceLine').click(function() {
@@ -52,8 +52,6 @@ $('#addInvoiceLine').click(function() {
 });	
 	
 
-	/*
-
 	//check that both baked good and quantity has value
 	if (orderLineQuantity != 0 && orderLineItem !=0) {
 		$('#quantityError').html("");
@@ -68,7 +66,7 @@ $('#addInvoiceLine').click(function() {
 
 
 
- this doesn't appear to be working to count clicks, frustrating 
+ /*this doesn't appear to be working to count clicks, frustrating 
 var count = 0;
 $('#addInvoiceLine').click(function() {
     $("button.button").submit(function(){
@@ -120,15 +118,6 @@ $('#email').blur(function() {
     var email = $(this).val();
   
     $('#emailOut').html(email);
-  
-     var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
- 
-     if (!filter.test(email.value)) {
-     alert('Please provide a valid email address');
-     email.focus;
-     return false;
-    
- };
  
     console.log(name);
   });
@@ -165,8 +154,6 @@ var quantityInput = document.getElementById("quantity");
  
  //clicking the add button will trigger the update/changes
 $('#addInvoiceLine').click(function() {
-	//debug this call and check that it is out putting info	
-	console.log(quantityInput);
 	//cast the user input from string to integer
 	var input = parseInt(quantityInput.value);
 	//push the integer into the array
@@ -201,35 +188,39 @@ $('#addInvoiceLine').click(function() {
 
  /*-------------------------------------------------------------------------
  validate input from the fields
+  --------------------------------------------------------------------------*/ 
+  //this is done using the jquery validation plugin, available at http://jqueryvalidation.org/
+ $('#left-side').keyup(function() {
+	$('form').validate({
 
-   
- $("#name").validate({
-   rules: {
-     name: {
-       required: true,
-       minlength: 2
-     },
-     billingAddress: {
-       required: true,
-       minlength: 10
-     },
-     state: {
-       required: true,
-       minlength:2
-     },
-     email: {
-       required: true,
-       minlength:5
-     }
-   },
-   messages: {
-     name: "Please enter your name",
-     billingAddress: "Please enter a billing address.",
-     state: "We need your city, state, and zipcode as well.",
-     email: "Definitely required, we need to know how to contact you to take payment."
-   },
-   onfocusout: true
-   //console.log("validate")
- });
- --------------------------------------------------------------------------*/	
+	   rules: {
+	     name: {
+	       required: true,
+	       minlength: 2,
+	       
+	     },
+	     billingAddress: {
+	       required: true,
+	       minlength: 10
+	     },
+	     state: {
+	       required: true,
+	       minlength:10
+	     },
+	     email: {
+	       required: true,
+	       minlength:5,
+	       email: true
+	     }
+	   },
+	   messages: {
+	     name: "<br> Please enter your name",
+	     billingAddress: "<br> Please enter a billing address.",
+	     state: "<br> We need your city, state, and zipcode as well.",
+	     email: "<br> Definitely required, we need to know how to contact you to take payment."
+	   }
+	
+	 });
+});
+	
 	
