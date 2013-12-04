@@ -4,6 +4,19 @@ console.log('the js is working');
 $(document).ready(function(){
     $('.submit').attr('disabled',true);
 
+   //$('.required').ready(function() {
+    //	var input = $(this).val();
+    //	console.log(input);
+    //	if(input == 0) {
+    //		$('.requiredinput').html("*");
+	//		$('#addInvoiceLine').attr('disabled', true);
+    //	}
+    //	else {
+    //		$('.requiredinput').html("");
+	//		$('#addInvoiceLine').attr('disabled', false);
+    //	}
+    //});
+
     //check that the quantity box has input
     $('.quantity').keyup(function () {
 		var input = $(this).val();
@@ -220,8 +233,10 @@ $('#addInvoiceLine').click(function() {
 	     state: "<br> We need your city, state, and zipcode as well.",
 	     email: "<br> Definitely required, we need to know how to contact you to take payment."
 	   }
+
+
 	
-	 });
+	 });	 
 });
 	
 /*-------------------------------------------------------------------------
@@ -230,3 +245,4 @@ Print the page
 $('#print').click(function () {
 	window.print();
 });
+

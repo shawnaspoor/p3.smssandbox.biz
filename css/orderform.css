@@ -1,52 +1,23 @@
 @media screen {
 
 /*-------------------------------------------------------------------------------------------------
-General Styles
--------------------------------------------------------------------------------------------------*/
-	body {
-		font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-		font-size: 16pt;
-	}
-
-	h1 {
-		font-size: 20pt;
-		margin: 2px;
-		padding: 2px;
-	}
-
-	h2 {
-		font-size: 14pt;
-		font-weight: bold;
-		margin: 2px;
-		padding-top: 20px;
-	}
-
-
-/*-------------------------------------------------------------------------------------------------
 Layout
 -------------------------------------------------------------------------------------------------*/
-	#wrapper {
-		width:960px;
-		margin:0px auto;
-	}
-
-	/* Left column */
-	#left-side {
-		width:350px;
-		margin-right:50px;
-		float:left;
-	}
 
 	/* Right column */
+
+
+	#inline{
+		display: inline;
+		font-size: 14pt;
+	}
 	#invoice {
-		width:500px;
-		float:left;
 		text-align:left;
 		border: solid #000000 thin;
 		background: #f2f2f2;
 		padding:15px;
 		margin-top: 20px;
-		
+		font-size: 14pt;
 	}
 
 	.line1 {
@@ -68,7 +39,7 @@ Layout
 		margin: 5px;
 		padding: 10px;
 		height: 75px;
-		font-variant: normal;
+		
 	}
 
 	#contactInfo {
@@ -76,20 +47,17 @@ Layout
 		margin: 5px;
 		padding: 10px;
 		height: 75px;
-		font-variant: normal;
+		
 	}
 
 	#purchaserName {
-		width: 200px;
-		float:left;
 		padding-bottom: 10px;
-	    font-size: 14pt;
+		padding-left: 5px;
+	    
 		font-variant: small-caps;
 	}
 
-	#purchaserInfo {
-		width: 275px;
-		float: right;
+	#purchaserInfo {	
 		padding-bottom: 10px;	
 		font-variant: small-caps;
 		font-size: 14pt;
@@ -103,16 +71,16 @@ Layout
 	}
 
 	.total {
-		float: right;
+		font-variant: small-caps;
+		font-size: 14pt;
 		text-align: right;
 		
 
 	}
 	.invoiceGoods {
 		font-variant: small-caps;
-		float: left; 
 		font-size: 14pt;
-		width: 275px;
+		padding-left: 25px;
 
 
 		}
@@ -123,7 +91,32 @@ Layout
 		text-align: right;
 		width: 200px;
 	}
+
+	#quantityError {
+		color: #FF0000;
+
+	}
+
+	.bakedGood {
+		color: #0033FF ;
+	}
+
+
+	.error {
+		color: #FF0000;
+		margin: 0px;
+		padding-bottom: 10px;
+		font-weight: bold;
+		font-size: 14pt;
+	}
+
+	.requiredinput {
+		display: inline;
+		color: #FF0000;
+		font-size: 18pt;
+	}
 }
+
 @media print {
 
 	header nav, footer, {
@@ -173,7 +166,7 @@ Layout
 	}
 
 	#purchaserName {
-		width: 200px;
+
 		float:left;
 		padding-bottom: 10px;
 	    font-size: 14pt;
@@ -181,7 +174,7 @@ Layout
 	}
 
 	#purchaserInfo {
-		width: 275px;
+	
 		float: right;
 		padding-bottom: 10px;	
 		font-variant: small-caps;
@@ -205,7 +198,7 @@ Layout
 		font-variant: small-caps;
 		float: left; 
 		font-size: 14pt;
-		width: 275px;
+
 
 
 		}
@@ -214,7 +207,7 @@ Layout
 		font-variant: small-caps;
 		font-size: 14pt;
 		text-align: right;
-		width: 200px;
+
 	}
 
 }
