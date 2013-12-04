@@ -167,15 +167,24 @@ $('#email').blur(function() {
 var quantity = [];
 var invoiceDisplay  = document.getElementById("orderLineQuantity");
 var quantityInput = document.getElementById("quantity");
- 
+var bakedArray = [];
+
  //clicking the add button will trigger the update/changes
 $('#addInvoiceLine').click(function() {
 	//cast the user input from string to integer
 	var input = parseInt(quantityInput.value);
+	//pull the baked good info out
+	var bakedGood = $('.bakedGoods').val();
+
+	//put the baked good info into an array
+	bakedArray.push(bakedGood);
+
 	//push the integer into the array
 	quantity.push(input);
+
 	//debug to see what array is doing
 	console.log(quantity);
+	console.log(bakedArray);
 
     var total = quantity.reduce(function(a, b) {
      	return a + b;
@@ -246,3 +255,22 @@ $('#print').click(function () {
 	window.print();
 });
 
+
+
+/*-------------------------------------------------------------------------
+submit the form for download
+--------------------------------------------------------------------------*/ 
+
+$(".button").click(submitVariables);
+            
+ function submitVariables() {
+    $("#link").html("");
+	     	$.ajax({
+		        method: "POST",
+		        url: "process.php",
+		        data: { name: $("#name").val(), billingAddress: $("#billingAddress").val(), state: $("#state").val(), email: $("#email").val(), item_quantity: quantity, Baked_Good: bakedArray }
+		        }).done(function(returned_data) {
+		       		 $("#link").html("<a href='" + returned_data + "'>" + "View invoice in browser" + "</a>");
+		       		 $("#filename").html(returned_data);
+		         });
+    };
