@@ -4,18 +4,6 @@ console.log('the js is working');
 $(document).ready(function(){
     $('.submit').attr('disabled',true);
 
-   //$('.required').ready(function() {
-    //	var input = $(this).val();
-    //	console.log(input);
-    //	if(input == 0) {
-    //		$('.requiredinput').html("*");
-	//		$('#addInvoiceLine').attr('disabled', true);
-    //	}
-    //	else {
-    //		$('.requiredinput').html("");
-	//		$('#addInvoiceLine').attr('disabled', false);
-    //	}
-    //});
 
     //check that the quantity box has input
     $('.quantity').keyup(function () {
@@ -242,10 +230,10 @@ $('#addInvoiceLine').click(function() {
 	     state: "<br> We need your city, state, and zipcode as well.",
 	     email: "<br> Definitely required, we need to know how to contact you to take payment."
 	   }
-
-
 	
-	 });	 
+	 });
+
+	 $('#name, #billingAddress, #state, #email').on('change', checkForm);	 
 });
 	
 /*-------------------------------------------------------------------------
@@ -258,21 +246,34 @@ $('#print').click(function () {
 
 
 /*-------------------------------------------------------------------------
+disable the submit button if there is no content/invalid content in the
+text fields
+--------------------------------------------------------------------------*/ 
+
+$('#button').on('ready', checkForm);
+
+function checkForm() {
+	
+	$('#button').attr('disabled', !$('form').valid());
+};
+console.log(checkForm);
+
+/*-------------------------------------------------------------------------
 submit the form for download
 --------------------------------------------------------------------------*/ 
 
 $(".button").click(submitVariables);
-
-
-            
- function submitVariables() {
+          
+function submitVariables() {
     $("#link").html("");
-	     	$.ajax({
-		        method: "POST",
-		        url: "process.php",
-		        data: { name: $("#name").val(), billingAddress: $("#billingAddress").val(), state: $("#state").val(), email: $("#email").val(), item_quantity: JSON.stringify(quantity), Baked_Good: JSON.stringify(bakedArray) }
-		        }).done(function(returned_data) {
-		       		 $("#link").html("<a href='" + returned_data + "'>" + "View invoice in browser" + "</a>");
-		       		 $("#filename").html(returned_data);
-		         });
+	$.ajax({
+		method: "POST",
+		url: "process.php",
+		data: { name: $("#name").val(), billingAddress: $("#billingAddress").val(), state: $("#state").val(), email: $("#email").val(), item_quantity: JSON.stringify(quantity), Baked_Good: JSON.stringify(bakedArray) }
+		}).done(function(returned_data) {
+			$("#link").html("Thank You! Your invoice has been received.");
+		    $("#filename").html(returned_data);
+		});
+
+
     };
