@@ -255,6 +255,15 @@ $('#button').on('ready', checkForm);
 function checkForm() {
 	
 	$('#button').attr('disabled', !$('form').valid());
+
+	if (!$('form').valid()) {
+		
+		$('.requiredinput').hide();
+	}
+	else {
+		$('.requiredinput').html(requiredinput);
+	};
+	
 };
 console.log(checkForm);
 
