@@ -262,13 +262,15 @@ submit the form for download
 --------------------------------------------------------------------------*/ 
 
 $(".button").click(submitVariables);
+
+
             
  function submitVariables() {
     $("#link").html("");
 	     	$.ajax({
 		        method: "POST",
 		        url: "process.php",
-		        data: { name: $("#name").val(), billingAddress: $("#billingAddress").val(), state: $("#state").val(), email: $("#email").val(), item_quantity: quantity, Baked_Good: bakedArray }
+		        data: { name: $("#name").val(), billingAddress: $("#billingAddress").val(), state: $("#state").val(), email: $("#email").val(), item_quantity: JSON.stringify(quantity), Baked_Good: JSON.stringify(bakedArray) }
 		        }).done(function(returned_data) {
 		       		 $("#link").html("<a href='" + returned_data + "'>" + "View invoice in browser" + "</a>");
 		       		 $("#filename").html(returned_data);
