@@ -6,12 +6,14 @@
 	$item_quantity= $_POST["item_quantity"];
 	$Baked_Good= $_POST["Baked_Good"];
 
-    $data = "Name: " . $name."<br>".
-    "Billing Address: ".$billingAddress."<br>".$state."<br>".
-    "Email: ".$email."<br>".$item_quantity."<br>".$Baked_Good; 
+    $data = "Name: " . $name." ".
+    "Billing Address: ".$billingAddress." ".$state." ".
+    "Email: ".$email." ".
+    "Item Quantity: ".$item_quantity." ".
+    "Baked Goods: ".$Baked_Good; 
     
     $filename = "files/".$name.$billingAddress.".txt";
-    file_put_contents($filename, $data);
+    file_put_contents($filename, $data."\n", FILE_APPEND);
     
     echo "http://p3.smssandbox.biz/" . $filename;
 ?>
