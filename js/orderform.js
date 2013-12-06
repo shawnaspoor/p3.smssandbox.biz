@@ -2,6 +2,7 @@
 console.log('the js is working');
 
 $(document).ready(function(){
+	$('.submit').attr('disabled',true);
     $('#addInvoiceLine').attr('disabled',true);
     $('#button').attr('disabled', true);
 
@@ -13,6 +14,7 @@ $(document).ready(function(){
 		if (input ==0) {
 			$('#quantityError').html("It appears you didn't specify how many you would like.");
 			$('#addInvoiceLine').attr('disabled', true);
+			$('#button').attr('disabled', true);
 		}
 		//checking that it's a number
 		else if (!$.isNumeric(input))  {
@@ -68,6 +70,8 @@ $('#addInvoiceLine').click(function() {
 	//invoice line holder
 	var orderLineItem = "";
 	var orderLineQuantity= "";
+
+	//disable submit button
 	
 	//add the baked good & quantity to the invoice
 	orderLineItem =	'<div class="line1">' + $(".bakedGoods").val() +'</div>'+'<br>';
