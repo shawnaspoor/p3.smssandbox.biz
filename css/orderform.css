@@ -22,19 +22,7 @@ Layout
 		font-size: 14pt;
 	}
 
-	.line1 {
-		font-style: italic;
-		font-variant: normal;
-		padding-left: 5px;
-		margin-bottom: 5px;
-		
-	}
-	.line2 {
-		font-weight: bold;
-		font-variant: normal;
-		padding-left: 5px;
-		margin-bottom: 5px;
-	}
+
 
 	#nameOut {
 		border: solid #f2f2f2 thin;
@@ -72,6 +60,20 @@ Layout
 
 	}
 
+	#quantityError {
+		color: #FF0000;
+
+	}
+
+	#link {
+		display: block;
+		margin: 5px;
+		padding:10px;
+		font-size: 18pt;
+		color: #86CD86;
+
+
+	}
 	.total {
 		font-variant: small-caps;
 		font-size: 14pt;
@@ -94,11 +96,6 @@ Layout
 		width: 200px;
 	}
 
-	#quantityError {
-		color: #FF0000;
-
-	}
-
 	.bakedGood {
 		color: #0033FF ;
 	}
@@ -117,6 +114,7 @@ Layout
 		color: #FF0000;
 		font-size: 18pt;
 	}
+
 }
 
 @media print {

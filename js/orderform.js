@@ -2,7 +2,7 @@
 console.log('the js is working');
 
 $(document).ready(function(){
-	$('.submit').attr('disabled',true);
+
     $('#addInvoiceLine').attr('disabled',true);
     $('#button').attr('disabled', true);
 
@@ -28,6 +28,8 @@ $(document).ready(function(){
 			$('#addInvoiceLine').attr('disabled', false);
 		}
 	});
+
+	//check that the user picked a baked good to go with their quantity
 	$('#bakedGoods').blur(function() {
 			var item = $('.bakedGoods').val();
 			console.log(item);
@@ -57,7 +59,6 @@ $('.bakedGoods').change(function() {
 	//displaying on the screen which choice was made
 	$('.bakedGood').html(option);
 	
-
 });
 
 
@@ -70,8 +71,6 @@ $('#addInvoiceLine').click(function() {
 	//invoice line holder
 	var orderLineItem = "";
 	var orderLineQuantity= "";
-
-	//disable submit button
 	
 	//add the baked good & quantity to the invoice
 	orderLineItem =	'<div class="line1">' + $(".bakedGoods").val() +'</div>'+'<br>';
@@ -182,7 +181,7 @@ $('#addInvoiceLine').click(function() {
  	
 	//print the total to the invoice screen 
 	$('#total').html(total);
-	 //clear the input box for the user and push the content into the invoice
+
 
 	//check that total is not more than 100 and if it is disable the button
 	if (total > '99') {
@@ -195,9 +194,6 @@ $('#addInvoiceLine').click(function() {
 	}
 	
 });	
-
-
-
 
 
  /*-------------------------------------------------------------------------
@@ -233,11 +229,7 @@ $('#addInvoiceLine').click(function() {
 	     state: "<br> We need your city, state, and zipcode as well.",
 	     email: "<br> Definitely required, we need to know how to contact you to take payment."
 	   }
-	
 	 });
-
-	$('#name, #billingAddress, #state, #email').on('change', checkForm);
-
 });
 	
 /*-------------------------------------------------------------------------
@@ -248,29 +240,40 @@ $('#print').click(function () {
 });
 
 
-
 /*-------------------------------------------------------------------------
 disable the submit button if there is no content/invalid content in the
-text fields
+text fields and no baked goods chosen
 --------------------------------------------------------------------------*/ 
 
 function checkForm() {
 
-	console.log("checkform is working");
-	
-	$('#button').attr('disabled', !$('form').valid());
+ var total = quantity.reduce(function(a, b) {
+     	return a + b;
+     });
 
-	if (!$('form').valid()) {
-		
+	console.log(total);
+	 
+	if ( $('form').valid() && total > 0 ) {
+		$('#button').attr('disabled', false);
 		$('.requiredinput').hide();
 	}
 	else {
 		$('.requiredinput').html("");
+		$('#button').attr('disabled', true);
 	};
 	
 };
 
+$("#addInvoiceLine").click(checkForm);
 
+
+/*-------------------------------------------------------------------------
+disable the submit button after it is clicked once
+--------------------------------------------------------------------------*/ 
+$('#button').click(function() {
+	$('#button').attr('disabled', true);
+});
+	
 /*-------------------------------------------------------------------------
 submit the form for download
 --------------------------------------------------------------------------*/ 
@@ -297,3 +300,5 @@ clear button
 $('#removeInvoiceLines').click(function() {
     location.reload();
 });
+
+
