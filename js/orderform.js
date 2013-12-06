@@ -271,7 +271,7 @@ function checkForm() {
 submit the form for download
 --------------------------------------------------------------------------*/ 
 
-$(".button").click(submitVariables);
+$("#button").click(submitVariables);
           
 function submitVariables() {
     $("#link").html("");
