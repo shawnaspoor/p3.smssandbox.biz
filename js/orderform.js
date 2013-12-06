@@ -3,6 +3,7 @@ console.log('the js is working');
 
 $(document).ready(function(){
     $('.submit').attr('disabled',true);
+    $('#button').attr('disabled', true);
 
 
     //check that the quantity box has input
@@ -64,8 +65,6 @@ add the new baked good to the invoice
 $('#addInvoiceLine').click(function() {
 	console.log('add button clicked')
 
-
-
 	//invoice line holder
 	var orderLineItem = "";
 	var orderLineQuantity= "";
@@ -77,8 +76,6 @@ $('#addInvoiceLine').click(function() {
 	//create the order line and add the values just chosen
 	$('#orderLineItem').after(orderLineItem);
 	$('#orderLineQuantity').after(orderLineQuantity);
-
- 	//this doesn't appear to be working to count clicks, frustrating 
 
 });
 
@@ -103,7 +100,7 @@ $(".submit").click(function(){
 /*-------------------------------------------------------------------------
 add the recipient name
 --------------------------------------------------------------------------*/
-$('#name').keyup(function() {
+$('#name').change(function() {
 	//find out what they entered as their name
 	var name = $(this).val();
 
@@ -115,7 +112,7 @@ $('#name').keyup(function() {
 /*-------------------------------------------------------------------------
 add the recipient billing address
 --------------------------------------------------------------------------*/
-$('#billingAddress').keyup(function() {
+$('#billingAddress').change(function() {
 	//find out what they entered as their address
 	var billingAddress = $(this).val();
 
@@ -124,7 +121,7 @@ $('#billingAddress').keyup(function() {
 	console.log(name);
 });
 
-$('#state').keyup(function() {
+$('#state').change(function() {
 	//find out what they entered as their address
 	var state = $(this).val();
 
@@ -137,7 +134,7 @@ $('#state').keyup(function() {
 add the recipient email address
 --------------------------------------------------------------------------*/
 
-$('#email').blur(function() {
+$('#email').change(function() {
     //find out what they entered as their email
     var email = $(this).val();
   
@@ -151,9 +148,8 @@ $('#email').blur(function() {
  add quantity to an array
  --------------------------------------------------------------------------*/
  
- //declare the variables
+ //declare the variables and arrays
 var quantity = [];
-var invoiceDisplay  = document.getElementById("orderLineQuantity");
 var quantityInput = document.getElementById("quantity");
 var bakedArray = [];
 
@@ -197,6 +193,8 @@ $('#addInvoiceLine').click(function() {
 
 
 
+
+
  /*-------------------------------------------------------------------------
  validate input from the fields
   --------------------------------------------------------------------------*/ 
@@ -233,7 +231,8 @@ $('#addInvoiceLine').click(function() {
 	
 	 });
 
-	 $('#name, #billingAddress, #state, #email').on('change', checkForm);	 
+	$('#name, #billingAddress, #state, #email').on('change', checkForm);
+
 });
 	
 /*-------------------------------------------------------------------------
@@ -250,9 +249,9 @@ disable the submit button if there is no content/invalid content in the
 text fields
 --------------------------------------------------------------------------*/ 
 
-$('#button').on('ready', checkForm);
-
 function checkForm() {
+
+	console.log("checkform is working");
 	
 	$('#button').attr('disabled', !$('form').valid());
 
@@ -261,11 +260,11 @@ function checkForm() {
 		$('.requiredinput').hide();
 	}
 	else {
-		$('.requiredinput').html(requiredinput);
+		$('.requiredinput').html("");
 	};
 	
 };
-console.log(checkForm);
+
 
 /*-------------------------------------------------------------------------
 submit the form for download
@@ -286,3 +285,12 @@ function submitVariables() {
 
 
     };
+
+/*-------------------------------------------------------------------------
+clear button
+--------------------------------------------------------------------------*/ 
+$('#removeInvoiceLines').click(function() {
+	console.log("removeInvoiceLines is working");
+    location.reload();
+
+});

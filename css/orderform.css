@@ -5,7 +5,9 @@ Layout
 -------------------------------------------------------------------------------------------------*/
 
 	/* Right column */
-
+	h4 {
+		display: inline-block;
+	}
 
 	#inline{
 		display: inline;
@@ -119,36 +121,19 @@ Layout
 
 @media print {
 
-	header nav, footer, {
+	header nav, footer {
 		display: none;
 	}
 
-	#left-side, #print {
+	#left-side, #print, #removeInvoiceLines, #button {
 		display: none;
 	}
 
-	#invoice {
-		width:80%;
+	#invoice {	
 		text-align:left;
 		background: #f2f2f2;
 		padding:15px;
 		margin-top: 20px;
-		position: relative;
-		
-	}
-
-	.line1 {
-		font-style: italic;
-		font-variant: normal;
-		padding-left: 5px;
-		margin-bottom: 5px;
-		
-	}
-	.line2 {
-		font-weight: bold;
-		font-variant: normal;
-		padding-left: 5px;
-		margin-bottom: 5px;
 	}
 
 	#nameOut {
@@ -166,25 +151,22 @@ Layout
 	}
 
 	#purchaserName {
-
-		float:left;
 		padding-bottom: 10px;
 	    font-size: 14pt;
 		font-variant: small-caps;
 	}
 
 	#purchaserInfo {
-	
-		float: right;
+
 		padding-bottom: 10px;	
 		font-variant: small-caps;
 		font-size: 14pt;
-		text-align: right;
+		
 	}
 
 	#total {
 		text-align: right;
-		position: absolute;
+		display: block;
 		bottom: 0;
 
 	}
@@ -194,16 +176,18 @@ Layout
 		
 
 	}
+	
 	.invoiceGoods {
+		width: 200px;
+		display: inline;
+		float:left;
 		font-variant: small-caps;
-		float: left; 
 		font-size: 14pt;
+	}
 
-
-
-		}
 	.invoiceQuantity {
-		float: right; 
+		width: 100px;
+		float:right;
 		font-variant: small-caps;
 		font-size: 14pt;
 		text-align: right;

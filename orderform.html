@@ -28,16 +28,16 @@
 		<div class="row" >
 			<div class="span4" id="left-side">
 				<form action="process.php" method="post">	
-					<h4>Name</h4><div class="requiredinput">*</div>
+					<h4>Name</h4><div class="requiredinput">*</div><br>
 					<input type="text" id ="name" name="name" class="required">
 					
 
-					<h4>Billing Address</h4><div class="requiredinput">*</div>
+					<h4>Billing Address</h4><div class="requiredinput">*</div><br>
 					<input type="text" id ="billingAddress" name="billingAddress">
-					<h4>State, City, Zipcode</h4><div class="requiredinput">*</div>
+					<h4>State, City, Zipcode</h4><div class="requiredinput">*</div><br>
 					<input type="text" id ="state" name="state">
 
-					<h4>Email Address</h4><div class="requiredinput">*</div>
+					<h4>Email Address</h4><div class="requiredinput">*</div><br>
 					<input type="text" id ="email" name="email">
 
 					<h4>Choose a yummy!</h4>
@@ -56,7 +56,7 @@
 						<input type="text" class="quantity" id="quantity" maxlength="2" >
 						
 						<div class='error' id="quantityError"></div>	
-							<input type="button" class="submit" id="addInvoiceLine"	value="Add Baked Good to Invoice">
+							<input type="button" class="submit, btn btn-info" id="addInvoiceLine"	value="Add Baked Good to Invoice">
 			
 					
 			
@@ -106,8 +106,9 @@
 			</div>
 		</div>
 		<br>
-		<button class="button" id="button" value="Add">Submit Invoice</button>
-		<input type="button" class="print" id="print"	value="Print Your Invoice" />
+		<button class="button, btn btn-success" id="button" value="Add">Submit Invoice</button>
+		<input type="button" class="print, btn btn-primary" id="print"	value="Print Your Invoice" />
+		<button class="removeInvoiceLines, btn btn-danger" id="removeInvoiceLines" value="Clear">Start Over</button>
 
 
 		<div id="link"></div>
