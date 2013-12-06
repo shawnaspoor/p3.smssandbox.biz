@@ -2,7 +2,7 @@
 console.log('the js is working');
 
 $(document).ready(function(){
-    $('.submit').attr('disabled',true);
+    $('#addInvoiceLine').attr('disabled',true);
     $('#button').attr('disabled', true);
 
 
@@ -291,7 +291,5 @@ function submitVariables() {
 clear button
 --------------------------------------------------------------------------*/ 
 $('#removeInvoiceLines').click(function() {
-	console.log("removeInvoiceLines is working");
     location.reload();
-
 });
