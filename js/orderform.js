@@ -184,6 +184,7 @@ $('#addInvoiceLine').click(function() {
 	if (total > '99') {
 		$('#quantityError').html("You can't order more than 99 items via email. Please contact us by phone to place an order");
 		$('#addInvoiceLine').attr('disabled', true);	
+		$('#button').attr('disabled', true);
 	}
 	else {
 		$('#quantityError').html("");
