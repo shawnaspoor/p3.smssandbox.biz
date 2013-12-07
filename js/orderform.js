@@ -1,6 +1,3 @@
-
-console.log('the js is working');
-
 $(document).ready(function(){
 
     $('#addInvoiceLine').attr('disabled',true);
@@ -10,7 +7,7 @@ $(document).ready(function(){
     //check that the quantity box has input
     $('.quantity').keyup(function () {
 		var input = $(this).val();
-		console.log(input);
+
 		if (input ==0) {
 			$('#quantityError').html("It appears you didn't specify how many you would like.");
 			$('#addInvoiceLine').attr('disabled', true);
@@ -37,7 +34,6 @@ $(document).ready(function(){
 	//check that the user picked a baked good to go with their quantity
 	$('#bakedGoods').blur(function() {
 			var item = $('.bakedGoods').val();
-			console.log(item);
 
 			if (item != "") {
 				$('#quantityError').html("");
@@ -71,7 +67,7 @@ $('.bakedGoods').change(function() {
 add the new baked good to the invoice
 --------------------------------------------------------------------------*/
 $('#addInvoiceLine').click(function() {
-	console.log('add button clicked')
+
 
 	//invoice line holder
 	var orderLineItem = "";
@@ -102,7 +98,7 @@ $("#addInvoiceLine").click(function(){
     	$('#quantityError').html("");
     	$('#addInvoiceLine').attr('disabled', false);
     }
-    console.log(count);
+    
 });
 
 /*-------------------------------------------------------------------------
@@ -122,8 +118,7 @@ $('#name').keyup(function() {
 	};
 
 	$('#nameOut').html(name);
-
-	console.log(name);
+;
 });
 
 /*-------------------------------------------------------------------------
@@ -159,7 +154,7 @@ $('#state').keyup(function() {
 
 	$('#stateOut').html(state);
 
-	console.log(name);
+	
 });
 
 /*-------------------------------------------------------------------------
@@ -181,8 +176,7 @@ $('#email').keyup(function() {
 	};
   
     $('#emailOut').html(email);
- 
-    console.log(name);
+
   });
 
 
@@ -208,15 +202,9 @@ $('#addInvoiceLine').click(function() {
 	//push the integer into the array
 	quantity.push(input);
 
-	//debug to see what array is doing
-	console.log(quantity);
-	console.log(bakedArray);
-
     var total = quantity.reduce(function(a, b) {
      	return a + b;
  	});
- 	//debug
-    console.log(total);
  	
 	//print the total to the invoice screen 
 	$('#total').html(total);
