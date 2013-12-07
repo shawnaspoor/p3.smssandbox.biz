@@ -9,10 +9,7 @@ Layout
 		display: inline-block;
 	}
 
-	#inline{
-		display: inline;
-		font-size: 14pt;
-	}
+	
 	#invoice {
 		text-align:left;
 		border: solid #000000 thin;
@@ -119,7 +116,11 @@ Layout
 		color: #FF0000;
 		font-size: 18pt;
 	}
-
+	
+	.inline{
+		display: inline;
+		font-size: 14pt;
+	}
 
 
 }
