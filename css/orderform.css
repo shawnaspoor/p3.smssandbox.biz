@@ -189,6 +189,8 @@ Layout
 		float:left;
 		font-variant: small-caps;
 		font-size: 14pt;
+		margin: 15px;
+		padding:10px;
 	}
 
 	.invoiceQuantity {
