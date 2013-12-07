@@ -62,7 +62,7 @@ $('.bakedGoods').change(function() {
 		option = $(this).text() + " ";
 	}); 
 	//displaying on the screen which choice was made
-	$('.bakedGood').html(option);
+	$('#bakedGood').html(option);
 	
 });
 
