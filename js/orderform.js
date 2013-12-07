@@ -227,7 +227,7 @@ $('#addInvoiceLine').click(function() {
  validate input from the fields
   --------------------------------------------------------------------------*/ 
   //this is done using the jquery validation plugin, available at http://jqueryvalidation.org/
- $('#left-side').change(function() {
+ $('#left-side').keyup(function() {
 	$('form').validate({
 
 	   rules: {
@@ -286,6 +286,7 @@ function checkForm() {
 };
 
 $("form").change(checkForm);
+$("#addInvoiceLine").click(checkForm);
 
 
 /*-------------------------------------------------------------------------
