@@ -103,9 +103,18 @@ $(".submit").click(function(){
 /*-------------------------------------------------------------------------
 add the recipient name
 --------------------------------------------------------------------------*/
-$('#name').change(function() {
+$('#name').keyup(function() {
 	//find out what they entered as their name
 	var name = $(this).val();
+
+	var name_length=name.length;
+
+	if (name_length > 20) {
+		$('.namelength').html('Names can be no longer than 25 characters, sorry!');
+	}
+	else {
+		$('.namelength').html(' ');
+	};
 
 	$('#nameOut').html(name);
 
@@ -115,18 +124,33 @@ $('#name').change(function() {
 /*-------------------------------------------------------------------------
 add the recipient billing address
 --------------------------------------------------------------------------*/
-$('#billingAddress').change(function() {
+$('#billingAddress').keyup(function() {
 	//find out what they entered as their address
 	var billingAddress = $(this).val();
 
 	$('#billingAddressOut').html(billingAddress);
 
-	console.log(name);
-});
+	var billingAddress_length=billingAddress.length;
 
-$('#state').change(function() {
+	if (billingAddress_length > 25) {
+		$('.billingaddress').html("The billing address field doesn't take more than 30 characters, sorry!");
+	}
+	else {
+		$('.billingaddress').html(' ');
+	};
+});
+$('#state').keyup(function() {
 	//find out what they entered as their address
 	var state = $(this).val();
+
+	var state_length=state.length;
+
+	if (state_length > 25) {
+		$('.statelength').html("The state, city, and zipcode field doesn't take more than 30 characters, sorry!");
+	}
+	else {
+		$('.statelength').html(' ');
+	};
 
 	$('#stateOut').html(state);
 
@@ -137,9 +161,19 @@ $('#state').change(function() {
 add the recipient email address
 --------------------------------------------------------------------------*/
 
-$('#email').change(function() {
+$('#email').keyup(function() {
     //find out what they entered as their email
     var email = $(this).val();
+
+
+  	var email_length=email.length;
+
+	if (email_length > 25) {
+		$('.emaillength').html("The email field doesn't take more than 30 characters, sorry!");
+	}
+	else {
+		$('emaillength').html(' ');
+	};
   
     $('#emailOut').html(email);
  

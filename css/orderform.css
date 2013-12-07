@@ -71,7 +71,13 @@ Layout
 		padding:10px;
 		font-size: 18pt;
 		color: #86CD86;
+	}
 
+	#length {
+		color: #FF0000;
+		margin: 0px;
+		padding-bottom: 10px;
+		font-size: 14pt;
 
 	}
 	.total {
@@ -105,7 +111,6 @@ Layout
 		color: #FF0000;
 		margin: 0px;
 		padding-bottom: 10px;
-		font-weight: bold;
 		font-size: 14pt;
 	}
 
@@ -114,6 +119,8 @@ Layout
 		color: #FF0000;
 		font-size: 18pt;
 	}
+
+
 
 }
 
