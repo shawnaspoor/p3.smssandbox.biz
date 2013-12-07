@@ -91,7 +91,7 @@ $('#addInvoiceLine').click(function() {
 count clicks and stop it at 10 
 --------------------------------------------------------------------------*/
 var count = 0;
-$(".submit").click(function(){
+$("#addInvoiceLine").click(function(){
     count++;
 
     if (count>9) {
@@ -286,13 +286,7 @@ text fields and no baked goods chosen
 
 function checkForm() {
 
- var total = quantity.reduce(function(a, b) {
-     	return a + b;
-     });
-
-	console.log(total);
-	 
-	if ( $('form').valid() && total > 0 ) {
+	if ( $('form').valid() && quantity.length > 0 ) {
 		$('#button').attr('disabled', false);
 		$('.requiredinput').hide();
 	}
@@ -303,7 +297,7 @@ function checkForm() {
 	
 };
 
-$("#addInvoiceLine").click(checkForm);
+$("form").change(checkForm);
 
 
 /*-------------------------------------------------------------------------
