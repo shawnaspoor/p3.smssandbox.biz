@@ -73,7 +73,7 @@ Layout
 		color: #86CD86;
 	}
 
-	#length {
+	.length {
 		color: #FF0000;
 		margin: 0px;
 		padding-bottom: 10px;

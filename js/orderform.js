@@ -110,10 +110,10 @@ $('#name').keyup(function() {
 	var name_length=name.length;
 
 	if (name_length > 20) {
-		$('.namelength').html('Names can be no longer than 25 characters, sorry!');
+		$('#namelength').html('Names can be no longer than 25 characters, sorry!');
 	}
 	else {
-		$('.namelength').html(' ');
+		$('#namelength').html(' ');
 	};
 
 	$('#nameOut').html(name);
@@ -133,10 +133,10 @@ $('#billingAddress').keyup(function() {
 	var billingAddress_length=billingAddress.length;
 
 	if (billingAddress_length > 25) {
-		$('.billingaddress').html("The billing address field doesn't take more than 30 characters, sorry!");
+		$('#billingaddress').html("The billing address field doesn't take more than 30 characters, sorry!");
 	}
 	else {
-		$('.billingaddress').html(' ');
+		$('#billingaddress').html(' ');
 	};
 });
 $('#state').keyup(function() {
@@ -146,10 +146,10 @@ $('#state').keyup(function() {
 	var state_length=state.length;
 
 	if (state_length > 25) {
-		$('.statelength').html("The state, city, and zipcode field doesn't take more than 30 characters, sorry!");
+		$('#statelength').html("The state, city, and zipcode field doesn't take more than 30 characters, sorry!");
 	}
 	else {
-		$('.statelength').html(' ');
+		$('#statelength').html(' ');
 	};
 
 	$('#stateOut').html(state);
@@ -169,10 +169,10 @@ $('#email').keyup(function() {
   	var email_length=email.length;
 
 	if (email_length > 25) {
-		$('.emaillength').html("The email field doesn't take more than 30 characters, sorry!");
+		$('#emaillength').html("The email field doesn't take more than 30 characters, sorry!");
 	}
 	else {
-		$('emaillength').html(' ');
+		$('#emaillength').html(' ');
 	};
   
     $('#emailOut').html(email);
