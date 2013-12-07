@@ -1,2 +1,0 @@
-Name: shawna Billing Address: spoor something here Email: shawna@spoor.org Item Quantity[5,5,5,5] Baked Good["Peanut Butter Cookies","Peanut Butter Cookies","Peanut Butter Cookies","Peanut Butter Cookies"]
-Name: shawna Billing Address: spoor something here Email: shawna@spoor.org Item Quantity: [] Baked Goods: []
