@@ -104,7 +104,7 @@ $("#addInvoiceLine").click(function(){
 /*-------------------------------------------------------------------------
 add the recipient name
 --------------------------------------------------------------------------*/
-$('#name').keyup(function() {
+$('#name').change(function() {
 	//find out what they entered as their name
 	var name = $(this).val();
 
@@ -124,7 +124,7 @@ $('#name').keyup(function() {
 /*-------------------------------------------------------------------------
 add the recipient billing address
 --------------------------------------------------------------------------*/
-$('#billingAddress').keyup(function() {
+$('#billingAddress').change(function() {
 	//find out what they entered as their address
 	var billingAddress = $(this).val();
 
@@ -139,7 +139,7 @@ $('#billingAddress').keyup(function() {
 		$('#billingaddress').html(' ');
 	};
 });
-$('#state').keyup(function() {
+$('#state').change(function() {
 	//find out what they entered as their address
 	var state = $(this).val();
 
@@ -161,7 +161,7 @@ $('#state').keyup(function() {
 add the recipient email address
 --------------------------------------------------------------------------*/
 
-$('#email').keyup(function() {
+$('#email').change(function() {
     //find out what they entered as their email
     var email = $(this).val();
 
