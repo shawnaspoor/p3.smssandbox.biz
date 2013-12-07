@@ -22,6 +22,11 @@ $(document).ready(function(){
 			$('#addInvoiceLine').attr('disabled', true);
 
 		}	
+
+		else if (input < 0) {
+			$('#quantityError').html("Invalid input, you can't order a negative amount.");
+			$('#addInvoiceLine').attr('disabled', true);
+		}
 		//everything good? go on, press the button then
 		else {
 			$('#quantityError').html("");
